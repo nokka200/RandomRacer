@@ -74,6 +74,7 @@ namespace RandomRacer
                     count1 += first;
                     count2 += second;
 
+                    // Tähän pitäisi laittaa jokin tarkistus voitosta 
                     LblFirst.Content = count1;
                     LblSecond.Content = count2;
 
@@ -83,22 +84,13 @@ namespace RandomRacer
                 Thread.Sleep(THREAD_SLEEP);
             }
 
-            Dispatcher.Invoke(FixWinnerValue);
             Dispatcher.Invoke(ChangeButtonStatus);
         }
 
-        private void FixWinnerValue()
-        {
-            // Fixes winners value to 100
 
-            if ((int)LblFirst.Content > MAX_WIDTH)
-            {
-                LblFirst.Content = 100;
-            }
-            if ((int)LblSecond.Content > MAX_WIDTH)
-            {
-                LblSecond.Content = 100;
-            }
+        private void ClickClose(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 

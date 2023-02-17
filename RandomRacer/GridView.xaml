@@ -40,7 +40,10 @@
 
         <Menu Grid.ColumnSpan="2">
             <MenuItem Header="File">
-                <MenuItem Header="Close"/>
+                <MenuItem Header="Close" Click="ClickClose" />
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Change Colour..."/>
             </MenuItem>
         </Menu>
     </Grid>
