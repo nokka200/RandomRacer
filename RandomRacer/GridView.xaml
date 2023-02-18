@@ -20,12 +20,12 @@
         </Grid.ColumnDefinitions>
 
         <Button x:Name="BtnStart" Grid.Row="2" Content="Start" Margin="5" Click="BtnStart_Click"/>
-        <Button x:Name="BtnReset" Grid.Row="2" Grid.Column="1" Content="Reset" Margin="5"/>
+        <Button x:Name="BtnReset" Grid.Row="2" Grid.Column="1" Content="Reset" Margin="5" Click="BtnReset_Click" />
 
         <StackPanel Margin="5" Grid.Row="1">
             <TextBox x:Name="TxtFirst"  Margin="5"/>
             <StackPanel Orientation="Horizontal">
-                <Rectangle x:Name="RecFirst" Margin="5" Height="20" Width="100" Fill="Red" HorizontalAlignment="Left" />
+                <Rectangle x:Name="RecFirst" Margin="5" Height="20" Width="1" Fill="Red" HorizontalAlignment="Left" />
                 <Label x:Name="LblFirst" Content="" Width="80"/>
             </StackPanel>
         </StackPanel>
@@ -33,7 +33,7 @@
         <StackPanel Margin="5" Grid.Row="1" Grid.Column="1">
             <TextBox x:Name="TxtSecond" Margin="5"/>
             <StackPanel Orientation="Horizontal">
-                <Rectangle x:Name="RecSecond" Margin="5" Height="20" Width="100" Fill="Green" HorizontalAlignment="Left"/>
+                <Rectangle x:Name="RecSecond" Margin="5" Height="20" Width="1" Fill="Green" HorizontalAlignment="Left"/>
                 <Label x:Name="LblSecond" Content="" Width="80"/>
             </StackPanel>
         </StackPanel>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -14,6 +15,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using ValueTester;
+using DebugInformation;
+using System.Diagnostics;
+using System.Printing;
 
 namespace RandomRacer
 {
@@ -26,6 +30,8 @@ namespace RandomRacer
         const int INCREMENT_VALUE_MAX = 5;
         const int MAX_WIDTH = 100;
         const int THREAD_SLEEP = 300;
+
+        public bool DebugFlag { get; set; } = true;
 
         public GridView()
         {
@@ -64,8 +70,10 @@ namespace RandomRacer
             int count1 = 0;
             int count2 = 0;
             int first, second;
+            int checkSum1, checkSum2;
+            bool even;
 
-            while (count1 <= MAX_WIDTH && count2 <= MAX_WIDTH)
+            while (count1 < MAX_WIDTH && count2 < MAX_WIDTH)
             {
                 Dispatcher.Invoke(() =>
                 {
@@ -76,6 +84,10 @@ namespace RandomRacer
                     count2 += second;
 
                     // Tähän pitäisi laittaa jokin tarkistus voitosta 
+                    CheckStatus(ref count1, ref count2, out checkSum1, out checkSum2, DebugFlag);
+                    //
+
+                    // Tarkisus loppuu tähän, siirretään omana metodiin
                     LblFirst.Content = count1;
                     LblSecond.Content = count2;
 
@@ -88,10 +100,39 @@ namespace RandomRacer
             Dispatcher.Invoke(ChangeButtonStatus);
         }
 
+        private static void CheckStatus(ref int count1, ref int count2, out int checkSum1, out int checkSum2, bool debug)
+        {
+            // checks if count is over 100 will reset it to 100 if 
+            // even does nothing
+
+            checkSum1 = ValueChecker.CheckIfOverFlow(count1, MAX_WIDTH);
+            checkSum2 = ValueChecker.CheckIfOverFlow(count2, MAX_WIDTH);
+
+            count1 -= checkSum1;
+            count2 -= checkSum2;
+
+            if(debug)
+            {
+                // Debug lines
+                var re1 = DebugInf.FormatVariables(count1, "count1");
+                var re2 = DebugInf.FormatVariables(count2, "count2");
+                Debug.WriteLine(re1);
+                Debug.WriteLine(re2);
+            }
+
+        }
 
         private void ClickClose(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void BtnReset_Click(object sender, RoutedEventArgs e)
+        {
+            LblFirst.Content = string.Empty;
+            LblSecond.Content = string.Empty;
+            RecFirst.Width = 1;
+            RecSecond.Width = 1;
         }
     }
 
