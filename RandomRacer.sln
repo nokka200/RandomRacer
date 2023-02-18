@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomRacer", "RandomRacer\RandomRacer.csproj", "{DBE001EC-DCD8-4F7F-B513-26E056464D3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomRacer", "RandomRacer\RandomRacer.csproj", "{DBE001EC-DCD8-4F7F-B513-26E056464D3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueTester", "ValueTester\ValueTester.csproj", "{57122103-E50D-48B2-AC8F-5AAFCDFD7BC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicTest", "LogicTest\LogicTest.csproj", "{96721B1B-0A7C-4FE5-8956-B2D8B5169BE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{DBE001EC-DCD8-4F7F-B513-26E056464D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBE001EC-DCD8-4F7F-B513-26E056464D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBE001EC-DCD8-4F7F-B513-26E056464D3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57122103-E50D-48B2-AC8F-5AAFCDFD7BC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57122103-E50D-48B2-AC8F-5AAFCDFD7BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57122103-E50D-48B2-AC8F-5AAFCDFD7BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57122103-E50D-48B2-AC8F-5AAFCDFD7BC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96721B1B-0A7C-4FE5-8956-B2D8B5169BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96721B1B-0A7C-4FE5-8956-B2D8B5169BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96721B1B-0A7C-4FE5-8956-B2D8B5169BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96721B1B-0A7C-4FE5-8956-B2D8B5169BE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
