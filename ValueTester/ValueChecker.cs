@@ -24,14 +24,24 @@
         }
 
         /// <summary>
-        /// Checks if values are equal
+        /// Checks if both values are even on max
         /// </summary>
         /// <param name="first"></param>
         /// <param name="second"></param>
-        /// <returns></returns>
-        static public bool CheckIfEven(int first, int second)
+        /// <returns>true if even else false</returns>
+        static public bool CheckIfEvenOnMax(int first, int second, int max)
         {
-            return (first == second);
+            if (first == max && second == max)
+            {
+                return true;
+            }
+            return false ;
         }
+
+        static public bool CheckIfEven(int first, int second) 
+        {
+            return first == second ;
+        }
+
     }
 }

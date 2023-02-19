@@ -70,8 +70,7 @@ namespace RandomRacer
             int count1 = 0;
             int count2 = 0;
             int first, second;
-            int checkSum1, checkSum2;
-            bool even;
+            //bool even;
 
             while (count1 < MAX_WIDTH && count2 < MAX_WIDTH)
             {
@@ -84,10 +83,20 @@ namespace RandomRacer
                     count2 += second;
 
                     // Tähän pitäisi laittaa jokin tarkistus voitosta 
-                    CheckStatus(ref count1, ref count2, out checkSum1, out checkSum2, DebugFlag);
-                    //
-
+                    CheckStatus(ref count1, ref count2, DebugFlag);
                     // Tarkisus loppuu tähän, siirretään omana metodiin
+
+                    // Tähän tarkistus jos molemmat ovat 100 samaan aikaan
+                    CheckOverMax(ref count1, ref count2, ref first, ref second);
+                    /*
+                     Jos on tasapeli MAX_WIDTH arvoon verrattaessa pitäisi heittää luvut uusiksi kunnes toinen on suurempi
+                    sitten muuttaaa voittaja 100 ja jättää häviäjä edelliseen arvoon
+                     */
+                    // loppuu
+
+                    // tarkastaa taas jos on yli 100
+                    CheckStatus(ref count1, ref count2, DebugFlag);
+
                     LblFirst.Content = count1;
                     LblSecond.Content = count2;
 
@@ -100,10 +109,30 @@ namespace RandomRacer
             Dispatcher.Invoke(ChangeButtonStatus);
         }
 
-        private static void CheckStatus(ref int count1, ref int count2, out int checkSum1, out int checkSum2, bool debug)
+        private static void CheckOverMax(ref int count1, ref int count2, ref int first, ref int second)
+        {
+            // tarkistaa jos tulos on on tasa peli heittää nopat uudestaan että saadaan voittaja
+            bool even = ValueChecker.CheckIfEvenOnMax(count1, count2, MAX_WIDTH);
+            while (even)
+            {
+                // Ensin vähennetään arvot jotka johtivat tasapeliin
+                count1 -= first;
+                count2 -= second;
+
+                first = Randomizer.GenerateNumber(INCREMENT_VALUE_MIN, INCREMENT_VALUE_MAX);
+                second = Randomizer.GenerateNumber(INCREMENT_VALUE_MIN, INCREMENT_VALUE_MAX);
+                count1 += first;
+                count2 += second;
+
+                even = ValueChecker.CheckIfEvenOnMax(count1, count2, MAX_WIDTH);
+            }
+        }
+
+        private static void CheckStatus(ref int count1, ref int count2, bool debug)
         {
             // checks if count is over 100 will reset it to 100 if 
             // even does nothing
+            int checkSum1, checkSum2;
 
             checkSum1 = ValueChecker.CheckIfOverFlow(count1, MAX_WIDTH);
             checkSum2 = ValueChecker.CheckIfOverFlow(count2, MAX_WIDTH);
