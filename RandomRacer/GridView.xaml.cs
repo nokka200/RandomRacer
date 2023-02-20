@@ -142,9 +142,11 @@ namespace RandomRacer
 
             if(debug)
             {
+                var caller = DebugInf.FormatFunctionCall("DebugInf.CheckStatus");
                 // Debug lines
                 var re1 = DebugInf.FormatVariables(count1, "count1");
                 var re2 = DebugInf.FormatVariables(count2, "count2");
+                Debug.WriteLine(caller);
                 Debug.WriteLine(re1);
                 Debug.WriteLine(re2);
             }
@@ -162,6 +164,12 @@ namespace RandomRacer
             LblSecond.Content = string.Empty;
             RecFirst.Width = 1;
             RecSecond.Width = 1;
+        }
+
+        private void MenuEditClick(object sender, RoutedEventArgs e)
+        {
+            ChangeBarColor editWindowObj = new();
+
         }
     }
 
