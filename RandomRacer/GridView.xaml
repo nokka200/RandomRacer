@@ -42,8 +42,21 @@
             <MenuItem Header="File">
                 <MenuItem Header="Close" Click="ClickClose" />
             </MenuItem>
-            <MenuItem Header="Edit" Click="MenuEditClick">
-                <MenuItem Header="Change Colour..."/>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Change Colour">
+                    <MenuItem Header="Bar1">
+                        <MenuItem Header="Black"/>
+                        <MenuItem Header="Purple"/>
+                        <MenuItem Header="Blue"/>
+                        <MenuItem Header="Red"/>
+                    </MenuItem>
+                    <MenuItem Header="Bar2">
+                        <MenuItem Header="Yellow"/>
+                        <MenuItem Header="Brown"/>
+                        <MenuItem Header="Pink"/>
+                        <MenuItem Header="Green"/>
+                    </MenuItem>
+                </MenuItem>
             </MenuItem>
         </Menu>
     </Grid>

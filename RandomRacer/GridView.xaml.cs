@@ -165,12 +165,6 @@ namespace RandomRacer
             RecFirst.Width = 1;
             RecSecond.Width = 1;
         }
-
-        private void MenuEditClick(object sender, RoutedEventArgs e)
-        {
-            ChangeBarColor editWindowObj = new();
-
-        }
     }
 
     static public class Randomizer
