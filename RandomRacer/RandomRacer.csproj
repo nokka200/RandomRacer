@@ -8,11 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.4" />
     <PackageReference Include="Nokka200.DebugInformation" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ValueTester\ValueTester.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="StatsDb.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

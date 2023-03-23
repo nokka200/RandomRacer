@@ -1,8 +1,11 @@
 ﻿Backlog
-Database integration
+
 
 ---
 In Progress
+Database integration StasRepository
+	- GetData
+	- SaveDate
 
 
 ---
@@ -10,3 +13,10 @@ Completed
 
 Race bar, different colors 
 ---
+
+
+
+Guides
+
+SqlLite (Database)
+https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/?tabs=netcore-cli

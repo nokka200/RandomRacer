@@ -225,5 +225,10 @@ namespace RandomRacer
             return re;
         }
     }
+
+    public class StatsRepository
+    {
+
+    }
 }
 
