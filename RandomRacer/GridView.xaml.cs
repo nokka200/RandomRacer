@@ -165,6 +165,52 @@ namespace RandomRacer
             RecFirst.Width = 1;
             RecSecond.Width = 1;
         }
+
+        private void Btn_ChangeColorBar1(object sender, RoutedEventArgs e)
+        {
+            // logic to change color
+            var re = (MenuItem)e.Source;
+            var debugInfo = DebugInf.FormatVariables(re.Header, "MenuItem header");
+
+            Debug.WriteLine(debugInfo);
+            ChangeColor(re.Header, RecFirst);
+
+            e.Handled = true;
+        }
+
+        private void Btn_ChangeColorBar2(object sender, RoutedEventArgs e)
+        {
+            // logic to change color
+            var re = (MenuItem)e.Source;
+            var debugInfo = DebugInf.FormatVariables(re.Header, "MenuItem header");
+
+            Debug.WriteLine(debugInfo);
+            ChangeColor(re.Header, RecSecond);
+
+            e.Handled = true;
+        }
+
+        private void ChangeColor(object colorHeader, Rectangle gritToChange)
+        {
+            string color = (string)colorHeader;
+
+            if (color == "Black")
+                gritToChange.Fill = Brushes.Black;
+            else if (color == "Purple")
+                gritToChange.Fill = Brushes.Purple;
+            else if (color == "Blue")
+                gritToChange.Fill = Brushes.Blue;
+            else if (color == "Red")
+                gritToChange.Fill = Brushes.Red;
+            else if (color == "Yellow")
+                gritToChange.Fill = Brushes.Yellow;
+            else if (color == "Brown")
+                gritToChange.Fill = Brushes.Brown;
+            else if (color == "Pink")
+                gritToChange.Fill = Brushes.Pink;
+            else if (color == "Green")
+                gritToChange.Fill = Brushes.Green;
+        }   
     }
 
     static public class Randomizer
