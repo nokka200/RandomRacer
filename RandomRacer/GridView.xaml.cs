@@ -41,12 +41,13 @@ namespace RandomRacer
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
             // Starts the race by creating a new Thread with start method, changes buttons and Txtbox status
+            ChangeButtonStatus();
+            ChangeTxtStatus();
+
             Thread t = new Thread(StartRace);
             t.Start();
 
-            ChangeButtonStatus();
-
-            ChangeTxtStatus();
+            
         }
 
         private void ChangeTxtStatus()
@@ -107,6 +108,7 @@ namespace RandomRacer
             }
 
             Dispatcher.Invoke(ChangeButtonStatus);
+            Dispatcher.Invoke(ChangeTxtStatus);
         }
 
         private static void CheckOverMax(ref int count1, ref int count2, ref int first, ref int second)
@@ -160,10 +162,15 @@ namespace RandomRacer
 
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
-            LblFirst.Content = string.Empty;
-            LblSecond.Content = string.Empty;
+
+            TxtFirst.Text = String.Empty;
+            TxtSecond.Text = String.Empty;
+            LblFirst.Content = String.Empty;
+            LblSecond.Content = String.Empty;
+
             RecFirst.Width = 1;
             RecSecond.Width = 1;
+            
         }
 
         private void Btn_ChangeColorBar1(object sender, RoutedEventArgs e)
