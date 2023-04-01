@@ -41,6 +41,14 @@ namespace RandomRacer
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
             // Starts the race by creating a new Thread with start method, changes buttons and Txtbox status
+            var re = CheckIfLabelsEmpty();
+            if(re)
+            {
+                MessageBox.Show("Insert names");
+                ClearLabels();
+                return;
+            }
+
             ChangeButtonStatus();
             ChangeTxtStatus();
 
@@ -218,6 +226,27 @@ namespace RandomRacer
             else if (color == "Green")
                 gritToChange.Fill = Brushes.Green;
         }   
+
+        private bool CheckIfLabelsEmpty()
+        {
+            bool re = false;
+
+            if(TxtFirst.Text == string.Empty || TxtSecond.Text == string.Empty)
+            {
+                re = true;
+                return re;
+            }
+            else
+            {
+                return re;
+            }
+        }
+
+        private void ClearLabels()
+        {
+            LblFirst.Content = string.Empty;
+            LblSecond.Content = string.Empty;
+        }
     }
 
     static public class Randomizer

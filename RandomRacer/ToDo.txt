@@ -7,8 +7,7 @@ Database integration StasRepository
 	- GetData
 	- SaveDate
 
-BUG: Pelin pystyy aloittamaan ilman että nimet on annettu
-BUG: Reset näppäinem pitäisi vapauttaa nimet
+
 
 ---
 Completed
@@ -16,7 +15,8 @@ Completed
 Race bar, different colors 
 ---
 Bugs
-
+BUG: Reset näppäimen pitäisi vapauttaa nimet
+BUG: Pelin pystyy aloittamaan ilman että nimet on annettu
 
 Guides
 
